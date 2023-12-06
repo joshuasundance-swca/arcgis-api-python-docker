@@ -10,3 +10,4 @@ def test_query_df():
     df = beach_ramps_layer.query(as_df=True)
     assert isinstance(df, pd.DataFrame)  # nosec
     assert len(df) > 0  # nosec
+    print("test")
