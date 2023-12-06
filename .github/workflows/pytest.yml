@@ -20,16 +20,5 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
-        cache: pip
-
-    - name: Install Python libraries
-      run: |
-        pip install --user -r requirements.txt
-        pip install --user -r tests/requirements.txt
-
     - name: "Run tests"
-      run: cd tests && pytest -v -s -p no:cacheprovider
+      run: docker build -t test --target test . && docker run --rm -it test
