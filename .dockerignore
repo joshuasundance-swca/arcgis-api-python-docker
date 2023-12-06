@@ -1,0 +1,8 @@
+.dockerignore
+.git/
+.github/
+.gitignore
+.idea/
+.pre-commit-config.yaml
+Dockerfile
+docker-compose.yml

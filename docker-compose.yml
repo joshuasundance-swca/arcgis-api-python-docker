@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+  jupyterlab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    depends_on:
+      test:
+        condition: service_completed_successfully
+    volumes:
+      - ./notebooks:/home/arcgisuser/notebooks
+    ports:
+      - "${JUPYTER_PORT:-8888}:${JUPYTER_PORT:-8888}"
+    working_dir: /home/arcgisuser/notebooks
+    command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=${JUPYTER_PORT:-8888}", "--no-browser"]
