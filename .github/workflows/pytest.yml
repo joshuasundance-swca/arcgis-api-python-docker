@@ -32,5 +32,4 @@ jobs:
         pip install --user -r tests/requirements.txt
 
     - name: "Run tests"
-      directory: tests
-      run: pytest -v -s -p no:cacheprovider
+      run: cd tests && pytest -v -s -p no:cacheprovider
