@@ -20,5 +20,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: "Run tests"
-      run: docker build -t test --target test . && docker run --rm -it test
+    - name: Build test image
+      run: docker build -t test --target test .
+
+    - name: Run tests
+      run: docker run test
