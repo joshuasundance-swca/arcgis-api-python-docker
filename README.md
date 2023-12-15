@@ -23,7 +23,7 @@ The container will just run `/bin/bash` by default, but `arcgis` comes with Jupy
 ```bash
 docker run -d --name arcgis-api-python-docker \
   -p 8888:8888 \
-  joshuasundance/arcgis-api-python-docker:1.0.0 \
+  joshuasundance/arcgis-api-python-docker:1.0.1 \
   jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
 ```
 
@@ -33,7 +33,7 @@ version: '3.8'
 
 services:
   jupyterlab:
-    image: joshuasundance/arcgis-api-python-docker:1.0.0
+    image: joshuasundance/arcgis-api-python-docker:1.0.1
     ports:
       - "${JUPYTER_PORT:-8888}:${JUPYTER_PORT:-8888}"
     volumes:
