@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bookworm AS prereq
+FROM python:3.14.1-slim-bookworm AS prereq
 USER root
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
